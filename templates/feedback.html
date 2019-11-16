@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+    <title>readingList</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+
+    <!-- CSS & Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+  </head>
+
+
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg"> <!-- use bg-light to see navbar container -->
+      <a class="navbar-brand" href="/">readingList</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+          
+      <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link" href="/about">ABOUT</a>
+          <a class="nav-item nav-link" href="/team">TEAM</a>
+          <a class="nav-item nav-link" href="/feedback">FEEDBACK</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class=feedback>
+
+      <h1>We love feedback!</h1>
+      <p>We aim to continuously improve readingList, and your feedback comes a long way.</p>
+
+      <form method="post" action="/feedback">
+        <!-- <label for="email">Email address:</label> -->
+        <input type="feedback" id="feedback" name="feedback" required="required">
+        <a class="btn btn-primary" href="/thankyou" role="button" type="submit" id="submit-button">Submit</a>
+        <!-- <input type="submit" value="Submit" id="submit-button"> -->
+      </form>
+
+    </div>
+
+    
+    
+
+  </body>
+
+</html>

@@ -14,14 +14,7 @@ response = requests.get(endpoint, params=payload)
 
 json_data = response.json()
 
-print json_data['results']['lists'][0]['display_name']
-print json_data['results']['lists'][1]['display_name']
-print json_data['results']['lists'][6]['display_name']
-print json_data['results']['lists'][13]['display_name']
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
+print json_data['results']['lists'][0]['list_image']
 # print response.url
 # print response.status_code
 # print response.headers["content-type"]

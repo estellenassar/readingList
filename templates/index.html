@@ -1,37 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html>
+<html lang="en">
 
-    <head>
-        <title>readingList</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-    </head>
+  <head>
+    <title>readingList</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="css/styles.css")}}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 
-    <body>
+    <!-- CSS & Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+  </head>
 
-    <div class='title'>
-        <h1>readingList</h1>
+
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg"> <!-- use bg-light to see navbar container -->
+      <a class="navbar-brand" href="/">readingList</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+          
+      <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link" href="/about">ABOUT</a>
+          <a class="nav-item nav-link" href="/team">TEAM</a>
+          <a class="nav-item nav-link" href="/feedback">FEEDBACK</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="home">
+
+      <h1>Read more books.</h1>
+      <p>We believe that reading should be a key part of your life.<br>Let's make sure you find the best books for you!</p>
+      <a class="btn btn-outline-dark" href="/start" role="button">START YOUR JOURNEY</a>
+
+      <img class="book-image" src="{{ url_for('static', filename='images/bookshelf.jpg')}}" alt="bookshelf">
+      
+
     </div>
+
+    
     
 
-    <p class = "description">Use this cool website to search for your next favourite novel!</p>
-
-    <h2>Book Seach</h2>
-    <form method="post" action="/apiexample">
-        <div class="form-group">
-            <label for="name">Enter your name:</label>
-            <input type="name" name="name" id="name" required="required">
-        </div>
-        <div class="form-group">
-            <label for="movie">Enter your favourite book, author or genre:</label>
-            <input type="movie" name="movie" id="movie" required="required">
-        </div>
-        <button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
-    </form>
-
-    </body>
+  </body>
 
 </html>

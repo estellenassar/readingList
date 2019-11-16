@@ -1,0 +1,64 @@
+html {
+  width:100%;
+  height:100%;
+}
+
+body {
+  width:100%; /* vh and vw would give same results? */
+  height:100%;
+  margin: 0;
+
+  font-family: 'Montserrat', sans-serif;
+  color: #3C3744;
+    
+  display: flex; 
+  flex-direction: column;
+}
+  
+.title{
+  background: #E7DAF0;
+  font-family: 'Times Roman', Times, serif;
+  font-size: 2.5rem;
+  flex-basis: 25%;
+}
+
+.content{
+  flex-basis: 75%;
+  display: flex;
+}
+
+.search, .explore {
+  /* margin-top: 8px; */
+  flex-basis: 50%;
+  flex-direction: column;
+}
+
+.title, .search, .explore {
+  /* centers everything */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  font-family: 'Times Roman', Times, serif;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.action {
+  margin-top: 50px;
+}
+
+.search {
+  margin: 10px 50px;
+}
+
+/* .search {
+ margin-right: 4px;
+ 
+}
+
+.explore {
+ margin-left: 4px;
+} */

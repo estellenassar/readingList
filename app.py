@@ -31,22 +31,4 @@ def feedback():
 def thankyou():
 	return render_template("thank-you.html")
 
-
-
-# def sign_up():
-# 	form_data = request.form
-# 	print (form_data["email"])
-# 	return "All OK"
-
-# @app.route("/feedback/thankyou")
-# def thankyou():
-# 	return render_template("thank-you.html")
-
-
-
-
-# def thankyou():
-# 	feedback = form_data["feedback"]
-# 	return render_template("thank-you.html")
-
 app.run(debug=True)

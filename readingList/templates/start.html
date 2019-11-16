@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>readingList</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+        <!-- CSS and Bootstrap -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/start.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    </head>
+
+
+    <body>
+    
+        <div class="title">
+            <h1>readingList</h1>
+        </div>
+            
+        <div class="content">
+
+            <div class="search">
+
+                <h2>Book Search</h2>
+                <p class = "description"> Search for your next favourite novel!</p>
+
+                <form class="action" method="post" action="/apiexample">
+                    <div class="form-group">
+                        <label for="movie">Enter a book title, author or genre:</label>
+                        <input class="search" type="movie" name="movie" id="movie" required="required">
+                       </div>
+                    <button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+
+
+            <div class="explore">
+
+                <h2>Explore</h2>
+                <p>Would rather just look at current best sellers?</p>
+                
+                <button type="submit" id="submit-button" class="btn btn-primary action">Best Sellers Lists</button>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

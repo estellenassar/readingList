@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 
         <!-- CSS and Bootstrap -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/start.css')}}">
@@ -19,38 +20,53 @@
 
     <body>
     
-        <div class="title">
-            <h1>readingList</h1>
-        </div>
+            <nav class="navbar navbar-expand-lg"> <!-- use bg-light to see navbar container -->
+                <a class="navbar-brand mx-auto" href="/">readingList</a>
+            </nav>
             
-        <div class="content">
+        <div class="container">
 
-            <div class="search">
+            <div class="row">
+            
 
-                <h2>Book Search</h2>
-                <p class = "description"> Search for your next favourite novel!</p>
+                <div class="search col-md-6">
 
-                <form class="action" method="post" action="/apiexample">
-                    <div class="form-group">
-                        <label for="movie">Enter a book title, author or genre:</label>
-                        <input class="search" type="movie" name="movie" id="movie" required="required">
-                       </div>
-                    <button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
-                </form>
+                    <h3>Book Search</h3>
+                    <p class = "description"> Search for your next favourite novel!</p>
 
-            </div>
+                    <form class="action" method="post" action="/reviews">
+                        <div class="form-group">
+                            <label for="book_title">Enter a book title:</label>
+                            <input class="search" type="book_title" name="book_title" id="book_title" required="required">
+                        </div>
+                        <button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
 
 
-            <div class="explore">
+                <div class="explore col-md-6">
 
-                <h2>Explore</h2>
-                <p>Would rather just look at current best sellers?</p>
-                
-                <button type="submit" id="submit-button" class="btn btn-primary action">Best Sellers Lists</button>
+                    <h3>Explore</h3>
+                    <p>Would rather just look at current best sellers?<br>Choose a New York Times category!</p>
+                    
+                    <div class="row mb-3">
+                        <a class="btn btn-primary mr-2" href="/fiction" role="button">Fiction</a>
+                        <a class="btn btn-primary ml-2" href="/nonfiction" role="button">Non-fiction</a>
+                    </div>
+                    
+                    <div class="row">
+                        <a class="btn btn-primary mr-2" href="/business" role="button">Business</a>
+                        <a class="btn btn-primary ml-2" href="/miscellaneous" role="button">Miscellaneous</a>
+                    </div>
+                </div>
 
             </div>
 
         </div>
+
+        <div class="image-footer"><img class="book-stack" src="{{ url_for('static', filename='images/book-stack-coloured.jpeg')}}" alt=""></div>
+        
 
     </body>
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>readingList</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+
+        <!-- CSS and Bootstrap -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/lists.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    </head>
+
+
+    <body>
+    
+        <div class="title mt-3 mb-5">
+            <img class="header-image" src="{{ url_for('static', filename='images/open-book.jpeg')}}" alt="open-book">
+            <h1>Review</h1>
+        </div>
+
+        <div class="container">
+
+            {% for results in titleresults %}
+            <div class="media mb-5">
+                <div class="media-body">
+                    <h5 class="mt-0">{{ results.book_title }} by {{ results.book_author }}</h5>
+                    {{ results.summary }}
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>	
+
+    </body>
+
+</html>

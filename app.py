@@ -96,4 +96,5 @@ def miscellaneous():
 
 	return render_template("miscellaneous.html", bookresults=miscellaneous_books)
 
-app.run(debug=True)
+if  __name__  ==  "__main__":
+	app.run(debug=True)

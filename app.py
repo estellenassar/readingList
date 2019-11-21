@@ -27,6 +27,13 @@ def team():
 def feedback():
 	return render_template("feedback.html")
 
+@app.route("/thankyou", methods=["POST"])
+def thankyou():
+	form_data = request.form
+	name = form_data["name"]
+	
+	return render_template("thank-you.html", user_name=name)
+
 @app.route("/reviews", methods=["POST"])
 def reviews():
 	form_data = request.form
@@ -42,9 +49,15 @@ def reviews():
 	else:
 		user_data = book_title + ' by ' + book_author
 
-	results = nyt_reviews(book_input)
+	json_data = nyt_reviews(book_input)
+	results = json_data["results"]
+	num_results = json_data["num_results"]
 
-	return render_template("reviews.html", titleresults=results, search_data=user_data)
+	if num_results > 0:
+		return render_template("reviews.html", title_results=results, search_data=user_data)
+	else:
+		return render_template("no-results.html", search_data=user_data)
+
 
 def nyt_reviews(book_input):
 	load_dotenv()
@@ -65,12 +78,9 @@ def nyt_reviews(book_input):
 	response = requests.get(endpoint, params=payload)
 
 	json_data = response.json()
+	num_results = json_data["num_results"]
 
-	return json_data["results"]
-
-@app.route("/thankyou")
-def thankyou():
-	return render_template("thank-you.html")
+	return json_data
 
 def nyt_overview():
 	load_dotenv()
@@ -90,7 +100,7 @@ def fiction():
 	json_data = nyt_overview()
 	fiction_books = json_data['results']['lists'][0]['books']
 	
-	return render_template("fiction.html", bookresults=fiction_books)
+	return render_template("fiction.html", book_results=fiction_books)
 
 @app.route("/nonfiction")
 def nonfiction():
@@ -98,7 +108,7 @@ def nonfiction():
 	json_data = nyt_overview()
 	nonfiction_books = json_data['results']['lists'][1]['books']
 
-	return render_template("non-fiction.html", bookresults=nonfiction_books)
+	return render_template("non-fiction.html", book_results=nonfiction_books)
 
 @app.route("/business")
 def business():
@@ -106,7 +116,7 @@ def business():
 	json_data = nyt_overview()
 	business_books = json_data['results']['lists'][13]['books']
 
-	return render_template("business.html", bookresults=business_books)
+	return render_template("business.html", book_results=business_books)
 
 @app.route("/miscellaneous")
 def miscellaneous():
@@ -114,7 +124,7 @@ def miscellaneous():
 	json_data = nyt_overview()
 	miscellaneous_books = json_data['results']['lists'][6]['books']
 
-	return render_template("miscellaneous.html", bookresults=miscellaneous_books)
+	return render_template("miscellaneous.html", book_results=miscellaneous_books)
 
 @app.route("/massmarket")
 def massmarket():
@@ -122,7 +132,7 @@ def massmarket():
 	json_data = nyt_overview()
 	mass_market_books = json_data['results']['lists'][15]['books']
 
-	return render_template("mass-market.html", bookresults=mass_market_books)
+	return render_template("mass-market.html", book_results=mass_market_books)
 
 if  __name__  ==  "__main__":
 	app.run(debug=True)

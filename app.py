@@ -30,18 +30,38 @@ def feedback():
 @app.route("/reviews", methods=["POST"])
 def reviews():
 	form_data = request.form
-	book_input = form_data["book_title"]
+	book_title = form_data["book_title"]
+	book_author = form_data["book_author"]
+
+	book_input = (["book_title", book_title],["book_author", book_author])
+
+	if not book_input[1][1]:
+		user_data = book_title
+	elif not book_input[0][1]:
+		user_data = book_author
+	else:
+		user_data = book_title + ' by ' + book_author
 
 	results = nyt_reviews(book_input)
 
-	return render_template("reviews.html", titleresults=results)
+	return render_template("reviews.html", titleresults=results, search_data=user_data)
 
 def nyt_reviews(book_input):
 	load_dotenv()
 	api_key = os.getenv("NYT_API_KEY")
 	
 	endpoint = 'https://api.nytimes.com/svc/books/v3/reviews.json'
-	payload = {"api-key" : api_key, "title":book_input}
+
+	if not book_input[1][1]:
+		payload = {"api-key" : api_key, "title": book_input[0][1]}
+		print 1
+	elif not book_input[0][1]:
+		payload = {"api-key" : api_key, "author": book_input[1][1]}
+		print 2
+	else:
+		payload = {"api-key" : api_key, "title": book_input[0][1], "author": book_input[1][1]}
+		print 3
+
 	response = requests.get(endpoint, params=payload)
 
 	json_data = response.json()

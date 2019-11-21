@@ -18,3 +18,10 @@
 .media{
     padding: 0 150px;
 }
+
+.book-title {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    padding-left: 0;
+}

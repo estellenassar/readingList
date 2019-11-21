@@ -31,3 +31,13 @@ h1, h3 {
   display: flex;
   justify-content: center;
 }
+
+.row .search {
+  padding: 0 100px;
+  padding-right:10px;
+  /* text-align: center; */
+}
+
+.row .explore {
+  padding: 0 100px;
+}

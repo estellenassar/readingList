@@ -34,7 +34,7 @@
                 <div class="media-body">
                     <form method="post" action="/buybook" enctype="application/json">
                         <input type="hidden" name=book value="{{ books }}">
-                        <input type="submit" value="{{ books.title }} by {{ books.author }}"> 
+                        <input class='book-title' type="submit" value="{{ books.title }} by {{ books.author }}"> 
                     </form>
                     {{ books.description }}
                 </div>

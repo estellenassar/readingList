@@ -29,9 +29,10 @@
 
             {% for books in book_results %}
             <div class="media mb-5">
+                <h1 class="mr-5 align-self-center">{{books.rank}}</h1>
                 <img src="{{ books.book_image }}" class="book-image mr-3" alt="...">
                 <div class="media-body">
-                    <h5 class="mt-0">{{ books.title }} by {{ books.author }}</h5>
+                    <a href="/buybook"><h5 class="mt-0">{{ books.title }} by {{ books.author }}</h5></a>
                     {{ books.description }}
                 </div>
             </div>

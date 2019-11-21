@@ -22,22 +22,14 @@
     
         <div class="title mt-3 mb-5">
             <img class="header-image" src="{{ url_for('static', filename='images/open-book.jpeg')}}" alt="open-book">
-            <h1>Best Sellers - Miscellaneous</h1>
+            <h1>Buy Book</h1>
         </div>
-        
+
         <div class="container">
+
         
-            {% for books in book_results %}
-            <div class="media mb-5">
-                <img src="{{ books.book_image }}" class="book-image mr-3" alt="...">
-                <div class="media-body">
-                        <a href="/buybook"><h5 class="mt-0">{{ books.title }} by {{ books.author }}</h5></a>
-                    {{ books.description }}
-                </div>
-            </div>
-            {% endfor %}
-        
-        </div>		
+
+        </div>	
 
     </body>
 

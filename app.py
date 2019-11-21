@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 from dotenv import load_dotenv
 #These are python provided modules
 import requests, os
+from jinja2 import Template
 
 app = Flask("readingList")
 
@@ -99,6 +100,9 @@ def fiction():
 	
 	json_data = nyt_overview()
 	fiction_books = json_data['results']['lists'][0]['books']
+
+	s = "{% for books in book_results %} {{loop.index0}} {% endfor %}"
+	print Template(s) #.render(elements=["a", "b", "c", "d"])
 	
 	return render_template("fiction.html", book_results=fiction_books)
 
@@ -133,6 +137,14 @@ def massmarket():
 	mass_market_books = json_data['results']['lists'][15]['books']
 
 	return render_template("mass-market.html", book_results=mass_market_books)
+
+@app.route("/buybook")
+def buybook():
+
+	s = "{% for books in book_results %} {{loop.index0}} {% endfor %}"
+	print Template(s).render(elements=["a", "b", "c", "d"])
+
+	return render_template("buy-book.html")
 
 if  __name__  ==  "__main__":
 	app.run(debug=True)

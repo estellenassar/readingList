@@ -28,11 +28,12 @@
         <div class="container">
 
             {% for results in title_results %}
-            <div class="media mb-5">
+            <div class="media mb-5"> 
                 <div class="media-body">
                     <h5 class="mt-0">{{ results.book_title }} by {{ results.book_author }}</h5>
                     {{ results.summary }}
                 </div>
+                <a href="{{ results.url }}" class="btn btn-secondary btn-lg align-self-center ml-5" role="button">Review</a>
             </div>
             {% endfor %}
 

@@ -116,5 +116,13 @@ def miscellaneous():
 
 	return render_template("miscellaneous.html", bookresults=miscellaneous_books)
 
+@app.route("/massmarket")
+def massmarket():
+
+	json_data = nyt_overview()
+	mass_market_books = json_data['results']['lists'][15]['books']
+
+	return render_template("mass-market.html", bookresults=mass_market_books)
+
 if  __name__  ==  "__main__":
 	app.run(debug=True)

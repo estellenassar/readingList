@@ -14,11 +14,13 @@
 
         <!-- CSS and Bootstrap -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/start.css')}}">
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
     </head>
 
 
     <body>
+
+        
     
             <nav class="navbar navbar-expand-lg"> <!-- use bg-light to see navbar container -->
                 <a class="navbar-brand mx-auto" href="/">readingList</a>
@@ -36,14 +38,14 @@
 
                     <form class="action" method="post" action="/reviews">
                         <div class="form-group">
-                            <label for="book_title">Enter a book title:</label>
+                            <label for="book_title">Book Title:</label>
                             <input class="search" type="book_title" name="book_title" id="book_title">
                         </div>
                         <div class="form-group">
-                                <label for="book_author">Enter an author:</label>
+                                <label for="book_author">Author:</label>
                                 <input class="search" type="book_author" name="book_author" id="book_author">
                             </div>
-                        <button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
+                        <button type="submit" id="submit-button" class="btn btn-secondary">Submit</button>
                     </form>
 
                 </div>
@@ -53,8 +55,25 @@
 
                     <h3>Explore</h3>
                     <p>Would rather just look at current best sellers?<br>Choose a New York Times category!</p>
+
+                    <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Category
+                            </a>
+                          
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="/fiction">Fiction</a>
+                              <a class="dropdown-item" href="/nonfiction">Non-Fiction</a>
+                              <a class="dropdown-item" href="/business">Business</a>
+                              <a class="dropdown-item" href="/massmarket">Mass Market</a>
+                              <a class="dropdown-item" href="/miscellaneous">Miscellaneous</a>
+
+                            </div>
+                    </div>
+
                     
-                    <div class="row mb-3">
+                    
+                    <!-- <div class="row mb-3">
                         <a class="btn btn-primary mr-2" href="/fiction" role="button">Fiction</a>
                         <a class="btn btn-primary ml-2" href="/nonfiction" role="button">Non-fiction</a>
                     </div>
@@ -62,7 +81,7 @@
                     <div class="row">
                         <a class="btn btn-primary mr-2" href="/business" role="button">Business</a>
                         <a class="btn btn-primary ml-2" href="/miscellaneous" role="button">Miscellaneous</a>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -71,7 +90,13 @@
 
         <div class="image-footer"><img class="book-stack" src="{{ url_for('static', filename='images/book-stack-coloured.jpeg')}}" alt=""></div>
         
+        
 
     </body>
+
+    <script src="{{url_for('static', filename='js/jquery-3.3.1.slim.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    
 
 </html>

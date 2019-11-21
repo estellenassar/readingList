@@ -44,10 +44,53 @@
       <h1>We love feedback!</h1>
       <p>We aim to continuously improve readingList, and your feedback comes a long way.</p>
 
+
       <form method="post" action="/feedback">
-        <input type="feedback" name="feedback" id="feedback" required="required">
-        <button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
-      </form>
+        
+          <div class="form-group pt-3">
+            <label for="exampleFormControlSelect1">From 1 to 5, how happy are you with readingList?</label>
+            <div class="form-check form-check-inline pl-3">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">1</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">2</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                <label class="form-check-label" for="inlineRadio3">3</label>
+              </div>
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                  <label class="form-check-label" for="inlineRadio3">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                    <label class="form-check-label" for="inlineRadio3">5</label>
+                  </div>
+          </div>
+
+          
+          <div class="form-group col-md-6 px-0 pb-2">
+            <label for="exampleFormControlTextarea1">What can we improve on?</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+
+
+          <label for="personalDetails">If you would like to recieve updates, please fill in the boxes below.</label>
+          <div class="form-row pb-2">
+                <div class="form-group col-md-3">
+                  <input type="password" class="form-control" id="inputFirstName" placeholder="First Name">
+              </div>
+              <div class="form-group col-md-3">
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                
+              </div>
+            </div>
+
+          <a class="btn btn-secondary" href="/thankyou" role="button">Submit</a>
+        </form>
 
     </div>
 

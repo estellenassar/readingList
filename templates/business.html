@@ -29,12 +29,16 @@
         
             {% for books in book_results %}
             <div class="media mb-5">
-                <img src="{{ books.book_image }}" class="book-image mr-3" alt="...">
-                <div class="media-body">
-                        <a href="/buybook"><h5 class="mt-0">{{ books.title }} by {{ books.author }}</h5></a>
-                    {{ books.description }}
+                    <h1 class="mr-5 align-self-center">{{books.rank}}</h1>
+                    <img src="{{ books.book_image }}" class="book-image mr-3" alt="...">
+                    <div class="media-body">
+                        <form method="post" action="/buybook" enctype="application/json">
+                            <input type="hidden" name=book value="{{ books }}">
+                            <input type="submit" value="{{ books.title }} by {{ books.author }}"> 
+                        </form>
+                        {{ books.description }}
+                    </div>
                 </div>
-            </div>
             {% endfor %}
         
         </div>		

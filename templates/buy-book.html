@@ -12,6 +12,8 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 
+        <script src="https://kit.fontawesome.com/da0d43da3b.js" crossorigin="anonymous"></script>
+
         <!-- CSS and Bootstrap -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/lists.css')}}">
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
@@ -23,9 +25,31 @@
         <div class="title mt-3 mb-5">
             <img class="header-image" src="{{ url_for('static', filename='images/open-book.jpeg')}}" alt="open-book">
             <h1>Buy Book</h1>
+            
+
+            
         </div>
 
         <div class="container">
+            <div class="media">
+                    <img src="{{ book.book_image }}" class="book-image-buy align-self-center mr-5" alt="...">
+                <div class="media-body">
+                        <h2>{{ book.title }}</h2>
+                        <h2>by {{ book.author }}</h2>
+                        <p>{{ book.description }}</p>
+                        <p>ISBN: {{ book.primary_isbn13 }}</p>
+                        <br>
+                        <a class="btn btn-light mb-3" href="{{ book.buy_links[0].url }}" role="button"><i class="fab fa-amazon">   {{ book.buy_links[0].name }}</i></a>
+                        <br>
+                        <a class="btn btn-light mb-3" href="{{ book.buy_links[1].url }}" role="button"><i class="fab fa-apple">   {{ book.buy_links[1].name }}</i></a>
+                        <br>
+                        <a class="btn btn-light" href="{{ book.buy_links[3].url }}" role="button"><i class="fas fa-book">   {{ book.buy_links[3].name }}</i></a>
+               
+                            
+               
+                        </div>
+
+            </div>
 
         
 

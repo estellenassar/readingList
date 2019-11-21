@@ -1,5 +1,6 @@
 .title {
     text-align: center;
+    font-family: 'Anton', sans-serif;
 }
 
 .header-image {
@@ -9,3 +10,11 @@
 .book-image {
     width: 200px;
   }
+
+.book-image-buy {
+    width: 250px;
+}
+
+.media{
+    padding: 0 150px;
+}

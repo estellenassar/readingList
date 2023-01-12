@@ -77,14 +77,14 @@ def nyt_reviews(book_input):
 
 	if not book_input[1][1]:
 		payload = {"api-key": api_key, "title": book_input[0][1]}
-		print 1
+		print(1)
 	elif not book_input[0][1]:
 		payload = {"api-key": api_key, "author": book_input[1][1]}
-		print 2
+		print(2)
 	else:
 		payload = {"api-key": api_key,
 		    "title": book_input[0][1], "author": book_input[1][1]}
-		print 3
+		print(3)
 
 	response = requests.get(endpoint, params=payload)
 
@@ -158,7 +158,7 @@ def buybook():
 	if request.method == 'POST':
 		selected_book = request.form.to_dict()
 		formatted_book = ast.literal_eval(selected_book['book'])
-		print formatted_book
+		print(formatted_book)
 		return render_template("buy-book.html", book = formatted_book)
 
 if  __name__  ==  "__main__":
